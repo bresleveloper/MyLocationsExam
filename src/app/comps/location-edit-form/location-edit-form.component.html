@@ -1,0 +1,63 @@
+
+
+<header-buttons title="Location Edit">
+  
+    <button mat-icon-button [disabled]="!locationEditForm.valid" (click)="submitLocation()">
+        <mat-icon title="Save Location" >done_outline</mat-icon>
+    </button>
+
+    <span class="spacer">&nbsp;</span>
+
+    <button mat-icon-button (click)="chooseLocationFromMap()" >
+        <mat-icon title="Get Location From Map" >map</mat-icon>
+    </button>
+
+    <span class="spacer">&nbsp;</span>
+
+    <button mat-icon-button (click)="router.navigateByUrl('/locations')" >
+        <mat-icon title="Cancel" >cancel</mat-icon>
+    </button>
+
+</header-buttons>
+
+<div class="location-form" [formGroup]="locationEditForm" >
+
+    <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name" (keyup.enter)="jumpToNextInput($event)"/>
+    </mat-form-field>
+    <br/>
+
+    <mat-form-field>
+        <input matInput placeholder="Address" formControlName="address"  (keyup.enter)="jumpToNextInput($event)"/>
+    </mat-form-field>
+    <br/>
+
+    <mat-form-field>
+        <mat-select #catSelector
+                [compareWith]="compareFnForCategories"
+                placeholder="Categories" 
+                [formControl]="locationEditForm.controls.categories" 
+                multiple>
+
+            <mat-option *ngFor="let c of cats.dataObs | async" [value]="c">{{c.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br/>
+
+    <mat-form-field>
+        <input matInput placeholder="Latitude" formControlName="lat" (keyup.enter)="jumpToNextInput($event)" />
+    </mat-form-field>
+    <br/>
+
+    <mat-form-field>
+        <input matInput placeholder="Longitude" formControlName="lng" />
+    </mat-form-field>
+    <br/>
+
+    <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit" 
+            [disabled]="!locationEditForm.valid"
+            (click)="submitLocation()">Submit</button>
+</div>

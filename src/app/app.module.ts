@@ -1,18 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { CompsModule } from './modules/comps.module';
+import { AppRoutingModule } from './modules/app-routing.module';
 import { AppComponent } from './app.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
   ],
   imports: [
     BrowserModule,
+
+
+    CompsModule,
     AppRoutingModule
+
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+//ng build --prod --output-path docs --base-href MyLocationsExam
+
+//ng build --output-path docs --base-href ng6Tutorials
+
+//https://bresleveloper.github.io/ng6Tutorials/docs

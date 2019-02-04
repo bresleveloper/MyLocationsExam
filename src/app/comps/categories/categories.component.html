@@ -1,0 +1,26 @@
+
+
+
+<app-base-list [svc]="svc" headerTitle="Categories"
+    showNgContentWhenPropTrue='showAddItem'
+    [addTextToItem]="getLocationCount.bind(this)"
+    (itemClick)="gotoLocationByCategory($event)"
+    (openFilters)="openCategoriesFilters()"  [closeFilterEmitter]="closeFilterEmitter"
+    (openForm)="openCategoryForm($event)" [closeFormEmitter]="closeFormEmitter">
+    
+    <mat-form-field>
+        <input matInput #newCat (keyup.enter)="addCategory(newCat.value)" />
+    </mat-form-field>
+    <button mat-icon-button (click)="addCategory(newCat.value)">
+        <mat-icon  title="Add Category" >done</mat-icon>
+    </button>
+
+    <div class="filters">
+        <mat-form-field>
+            <input matInput #filterCat (keyup)="filterCategory(filterCat.value)" (keyup.enter)="closeFilter()"/>
+        </mat-form-field>
+    </div>
+
+</app-base-list>
+
+

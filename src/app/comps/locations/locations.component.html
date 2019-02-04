@@ -1,0 +1,33 @@
+
+<!--(openFilters)="openCategoriesFilters()"-->
+<app-base-list #baseList
+    [svc]="svc" [headerTitle]="pageheader"
+    showNgContentWhenPropTrue='standardItemClick'
+    (itemClick)="locationClick($event)"
+      [closeFilterEmitter]="closeFilterEmitter"
+    (openForm)="openLocationEditForm($event)" [closeFormEmitter]="closeFormEmitter"> 
+
+
+    <button mat-icon-button (click)="viewOnMap()">
+        <mat-icon  title="View On Map" >location_on</mat-icon>
+    </button>    
+    <button mat-icon-button (click)="viewLocationProps()">
+        <mat-icon  title="View Properties" >event_note</mat-icon>
+    </button>
+    <button mat-icon-button (click)="baseList.closeContent()">
+        <mat-icon  title="Close" >clear</mat-icon>
+    </button>
+
+
+    <div class="filters">
+        <!--alphabetical order-->
+        <button mat-icon-button (click)="SortAlphabetical()">
+            <mat-icon  title="Sort Alphabetical" >sort_by_alpha</mat-icon>
+        </button>
+        <!--grouped by category-->
+        <button mat-icon-button (click)="router.navigateByUrl('/locationsGrouped')">
+            <mat-icon  title="Group By Category" >category</mat-icon>
+        </button>
+    </div>
+    
+</app-base-list>

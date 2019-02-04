@@ -1,0 +1,9 @@
+
+
+
+
+.groups{text-align: left;margin: 0 40%; margin-top:-55px }
+
+@media only screen and (max-width: 600px) {
+    .groups{margin: 0;margin-top:-35px}
+}

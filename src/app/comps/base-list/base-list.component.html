@@ -1,0 +1,62 @@
+
+
+
+<header-buttons [title]="headerTitle">
+  
+    <button mat-icon-button *ngIf="closeFilterEmitter" (click)="toggleFilters()">
+        <mat-icon title="Toggle Filters" >filter_list</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="toggleAddItem()">
+      <mat-icon *ngIf="!showAddItem || isFormInEditMode" title="Add Item" >add_circle_outline</mat-icon>
+      <mat-icon *ngIf="showAddItem && !isFormInEditMode"  title="Cancel Add" >add_circle</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="toggleEditItem()" >
+      <mat-icon *ngIf="!showEditItem && !isFormInEditMode" title="Edit Item" >edit</mat-icon>
+      <mat-icon *ngIf="showEditItem || isFormInEditMode" title="Cancel Edit" >border_color</mat-icon>
+    </button>
+
+    <button mat-icon-button (click)="toggleRemoveItems()">
+      <mat-icon *ngIf="!showRemoveItems" title="Remove Items" >remove_circle_outline</mat-icon>
+      <mat-icon *ngIf="showRemoveItems"  title="Cancel Remove Items" >remove_circle</mat-icon>
+    </button>
+    <button mat-icon-button  class="big-icon" *ngIf="showRemoveItems"   (click)="deleteSelectedItems()">
+      <mat-icon title="REMOVE" >delete_forever</mat-icon>
+    </button>
+  
+    
+    <div [ngClass]="showNgContent() ? '' : 'hide'"> 
+      <ng-content></ng-content>
+    </div>
+
+    <div [ngClass]="showFilters ? '' : 'hide'"> 
+      <ng-content select="div.filters"></ng-content>
+    </div>
+
+  </header-buttons>
+  
+  
+  <div class="cat-list" [ngClass]="{ 'hide-remove' : !showRemoveItems && !showEditItem, 'cat-list-push' : showFilters }">
+
+    <div class="show-in-edit select-all" *ngIf="showEditItem">
+      <span>SELECT ITEM</span>
+    </div>
+    
+    <div class="show-in-remove select-all" *ngIf="showRemoveItems">
+      <span>SELECT ALL</span>
+      <mat-checkbox #selectAllCbx (change)="selectAllClick(selectAllCbx.checked)"></mat-checkbox>
+    </div>
+  
+    <mat-selection-list #matItemsList (selectionChange)="matItemsListChange($event)">
+      <mat-list-option *ngFor="let c of svc.dataObs | async" [value]="c">
+        {{c.name}} {{ addTextToItem ? addTextToItem(c) : null }}
+      </mat-list-option>
+    </mat-selection-list>
+    
+    <div class="show-in-remove">
+      Options selected: {{matItemsList.selectedOptions.selected.length}}
+    </div>
+  
+  
+  </div>

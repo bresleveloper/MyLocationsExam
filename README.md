@@ -1,27 +1,33 @@
 # MyLocationsExam
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
+Project given as a test, was very interesting, also I learned alot about maps 
 
-## Development server
+## More Notes
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+I've made generic base service and component, since the demands were quite similar.
 
-## Code scaffolding
+The service was 100% exact, the big "base-list" component, no so much, 
+I should have made a much smaller component, or event just a base class for it, 
+attaching a different html.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Also the part I used `ng-content` would have better been 2 sub/nested-component
 
-## Build
+The grouped-by locations component was the break point where I could not have adapted 
+the generic component anymore, and therefor the results, another route page, 
+is a relatively poor solution
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+If I would to refactor the code I would make the component handling the 
+`mat-selection-list` small enough to be able to use it multiple times with groups
 
-## Running unit tests
+Also if I had more time I would take out the ngFor input as an @Input instead of handling it
+inside the component, that way I could have make a "stop" to the service's observable
+and pipe it as much as I want at the hosting component level.
+That is also why i've hidden the filters in location by category page.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Yet I'm still proud
 
-## Running end-to-end tests
+## TODO wish list
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. Make a "send to waze" button
+2. Search location by address
+3. The above notes

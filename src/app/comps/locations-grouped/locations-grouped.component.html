@@ -1,0 +1,30 @@
+
+
+
+
+<header-buttons title="Locations Grouped">
+    <!-- UI looks really bad with that 1 'X' -->
+    <!--  
+    <button mat-icon-button (click)="location.back()">
+        <mat-icon  title="Close" >clear</mat-icon>
+    </button>
+    -->
+</header-buttons>
+
+<div class="groups">
+
+    <ul class="ul-group">
+        <li *ngFor='let kvp of groupedDataKVP | keyvalue'>
+            <h2>{{kvp.key}}</h2>
+
+            <ul class="ul-locations">
+                <li *ngFor="let l of kvp.value">
+                    {{l.name}}
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+</div>

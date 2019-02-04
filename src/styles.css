@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html{overflow-y: scroll;} /*otherwise screen jumps when scroll appears*/
+
+body{
+    max-width: 70%;
+    padding-top: 140px;/*this one manages the space for the header*/
+    margin: auto;
+}
+.footer-wrapper{height:60px; /*this one manages the space for the footer*/}
+
+header,footer{background: white; padding: 10px 0; z-index: 1; /*some mat-stuff find their way above the footer/header */}
+
+
+@media only screen and (max-width: 600px) {
+    body {
+        max-width: 100%;
+    }
+  }

@@ -1,0 +1,28 @@
+
+.cat-list{text-align: left;margin: 0 20%;}
+.cat-list-push{padding-top: 45px}
+h3 {margin : 3px 0;}
+
+.big-icon .mat-icon{font-size: 3em;}
+::ng-deep .big-icon .mat-button-ripple{
+    top: -7px;
+    right: -18px;
+    bottom: -9px;
+}
+
+
+.hide{display: none;}
+
+@media only screen and (min-width: 600px) {
+    .cat-list{
+        margin: 0 30%;
+    }
+}
+
+
+::ng-deep .cat-list .mat-list-option.show-in-remove .mat-list-text {margin-left: -20px }
+.select-all{display: flex;justify-content: space-between;padding-right: 16px;}
+
+::ng-deep .cat-list.hide-remove .mat-list-option .mat-pseudo-checkbox,
+::ng-deep .cat-list.hide-remove .show-in-remove
+{ display: none; }

@@ -1,0 +1,58 @@
+
+
+
+<div class="location-view">
+
+  <mat-card class="example-card">
+
+    <mat-card-header>
+      <mat-card-title>{{l.name}}</mat-card-title>
+      <mat-card-subtitle>{{l.address}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div>
+        <h4>Coordinates</h4>
+        <ul class="left-align-ul">
+          <li>
+            <span>Latitude: </span>
+            <span>{{l.coordinates.lat}}</span>
+          </li>
+          <li>
+            <span>Longitude: </span>
+            <span>{{l.coordinates.lng}}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Categories</h4>
+        <ul class="left-align-ul">
+          <li *ngFor="let c of l.categories">{{c.name}}</li>
+        </ul>
+      </div>
+    </mat-card-content>
+
+
+
+
+    <header-buttons title="View Location">
+
+      <mat-card-actions class="thin-mat-card-actions">
+        <button mat-icon-button (click)="viewOnMap()">
+            <mat-icon  title="View On Map" >location_on</mat-icon>
+        </button>    
+        <button mat-icon-button (click)="edit()">
+            <mat-icon  title="Edit Properties" >edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="location.back()">
+            <mat-icon  title="Close" >clear</mat-icon>
+        </button>
+      </mat-card-actions>
+
+    </header-buttons>
+
+  </mat-card>
+      
+
+</div>
