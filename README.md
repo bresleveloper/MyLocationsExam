@@ -36,4 +36,4 @@ Yet I'm still proud
 
 `ERROR TypeError: Cannot read property 'getExtent' of null`
 
-remove the property "sideEffects" from /node_modules/ol/package.json
+change the property "sideEffects" from /node_modules/ol/package.json to value `proj.js`
