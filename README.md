@@ -31,3 +31,9 @@ Yet I'm still proud
 1. Make a "send to waze" button
 2. Search location by address
 3. The above notes
+
+### OL package issue
+
+`ERROR TypeError: Cannot read property 'getExtent' of null`
+
+remove the property "sideEffects" from /node_modules/ol/package.json
